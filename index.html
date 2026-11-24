@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>חלב ודבש · קייטרינג חלבי</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@300;400;500;600&family=Heebo:wght@300;400;500&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: warm, quiet, generous — a hostess, not a billboard.
+   IDEA: fresh milk and honey on linen: soft light, round forms, lots of air.
+   PICTURE: the illustrated cheese board resting on a pale linen circle, with small floating notes.
+   COLOUR and TYPE: milk ground, cocoa ink, honey accent, sage support; Frank Ruhl Libre display, Rubik body.
+   LAYOUT: wide breathing bands, rounded cards, one gentle motion per section. */
+:root{color-scheme:light;--bg:#FBF7F1;--bg2:#F5EEE3;--bg3:#EFE5D6;--card:#FFFFFF;--line:#E7DCCC;--ink:#2E2621;--mute:#6B5F55;--dim:#7D7064;--acc:#E6B04A;--acc-soft:#F8E9C6;--acc-ink:#8F5F0C;--on-acc:#2E2621;--sage:#9DB39A;--sage-soft:#E6EEE3;--cocoa:#3A302A;--r:26px;--shadow:0 24px 60px -28px rgba(92,64,34,.35);--shadow-s:0 10px 30px -18px rgba(92,64,34,.35)}
+*{box-sizing:border-box;min-width:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--ink);font:300 17px/1.7 Heebo,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Noto Serif Hebrew",Georgia,serif;font-weight:400;margin:0;line-height:1.05;text-wrap:balance;letter-spacing:-.5px}
+b,strong{font-weight:500}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:max(5vw,20px)}
+.band{padding-block:clamp(80px,10vw,140px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 30px;border:0;border-radius:999px;font:400 17px/1 Heebo,sans-serif;text-decoration:none;cursor:pointer;transition:transform .3s cubic-bezier(.2,.8,.2,1),background .3s,box-shadow .3s,color .3s}
+.btn:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.btn-acc{background:var(--ink);color:var(--bg);box-shadow:var(--shadow-s)}.btn-acc:hover{transform:translateY(-2px);background:#4A3D35}
+.btn-ghost{background:var(--card);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}.btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+.btn-dark{background:var(--ink);color:var(--bg)}.btn-dark:hover{background:#4A3D35}
+.ic{width:20px;height:20px;flex:none}
+/* header */
+.hdr{position:sticky;top:0;z-index:40;background:rgba(251,247,241,.82);backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid transparent;transition:border-color .4s,box-shadow .4s}
+.hdr.scrolled{border-color:var(--line)}
+.hdr .wrap{display:flex;align-items:center;gap:32px;min-height:80px}
+.logo{display:flex;align-items:baseline;gap:4px;text-decoration:none;font-family:"Noto Serif Hebrew",Georgia,serif;font-size:30px;font-weight:500;line-height:1;color:var(--ink)}
+.logo b{color:var(--acc);font-weight:400;font-size:.9em}
+.nav{display:flex;gap:30px;margin-inline-start:auto;font-size:16px}
+.nav a{text-decoration:none;color:var(--mute);padding:8px 0;position:relative}.nav a:hover{color:var(--ink)}
+.nav a::after{content:"";position:absolute;inset-inline:0;bottom:2px;height:1px;background:var(--acc);transform:scaleX(0);transition:transform .3s}.nav a:hover::after{transform:scaleX(1)}
+.hdr .btn{min-height:46px;padding:0 24px;font-size:16px}
+.menu-btn{display:none;background:none;border:0;color:var(--ink);width:46px;height:46px;cursor:pointer;border-radius:50%}
+/* hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(60% 70% at 18% 45%,#F7E6C2 0%,rgba(247,230,194,0) 70%),var(--bg)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center;padding-block:clamp(48px,7vw,104px) clamp(64px,8vw,120px)}
+.kosher{display:inline-flex;align-items:center;gap:10px;font-size:15px;color:var(--mute);padding:9px 18px;background:var(--card);border-radius:999px;box-shadow:var(--shadow-s)}
+.kosher i{width:8px;height:8px;border-radius:50%;background:var(--sage);box-shadow:0 0 0 4px var(--sage-soft)}
+.hero h1{font-size:clamp(68px,8.6vw,128px);line-height:.98;margin-top:28px;font-weight:400}
+.hero h1 .l{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .l span{display:inline-block}
+.hero h1 .y{color:var(--acc-ink);font-weight:300;position:relative}
+.hero h1 .y::after{content:"";position:absolute;inset-inline:-2% -2%;bottom:.12em;height:.16em;background:var(--acc);opacity:.35;border-radius:99px;z-index:-1}
+.hero .lead{font-size:clamp(18px,1.5vw,20px);color:var(--mute);max-width:500px;margin-top:26px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.hero .ctas .btn{min-height:60px;font-size:18px;padding:0 34px}
+.facts{display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:42px;color:var(--mute);font-size:15px}
+.facts span{display:flex;align-items:center;gap:8px}
+.facts svg{color:var(--sage);width:18px;height:18px}
+.board{position:relative;aspect-ratio:1/1;width:100%;max-width:600px;justify-self:center}
+.board::before{content:"";position:absolute;inset:2%;border-radius:50%;background:radial-gradient(circle at 40% 35%,#FFFFFF,#F3E9DA 70%);box-shadow:0 40px 90px -40px rgba(92,64,34,.45)}
+.board svg{position:relative;width:100%;height:100%;display:block;overflow:visible}
+.note{position:absolute;z-index:2;display:flex;align-items:center;gap:10px;background:var(--card);border-radius:18px;padding:12px 16px;box-shadow:var(--shadow);font-size:14px;color:var(--mute);line-height:1.35}
+.note b{display:block;color:var(--ink);font-size:15px}
+.note i{width:36px;height:36px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--acc-soft);color:var(--acc-ink);font-style:normal;font-family:"Noto Serif Hebrew",Georgia,serif;font-size:18px}
+.note.n1{top:8%;inset-inline-start:-4%}.note.n2{bottom:10%;inset-inline-end:-2%}
+.note.n2 i{background:var(--sage-soft);color:#4E6B4A}
+/* marquee */
+.marq{overflow:hidden;background:var(--bg2);border-block:1px solid var(--line)}
+.marq-track{display:flex;width:max-content}
+.marq-item{display:flex;align-items:center;gap:34px;padding:22px 17px;font-family:"Noto Serif Hebrew",Georgia,serif;font-size:clamp(26px,2.6vw,34px);color:var(--mute);white-space:nowrap;line-height:1}
+.marq-item i{width:7px;height:7px;border-radius:50%;background:var(--acc);flex:none}
+/* section heads */
+.shead{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;margin-bottom:clamp(44px,5vw,72px)}
+.shead h2{font-size:clamp(48px,5.6vw,80px)}
+.shead h2 em{font-style:normal;color:var(--acc-ink);font-weight:300}
+.shead p{max-width:560px;color:var(--mute);font-size:18px}
+.eyebrow{font-size:15px;color:var(--acc-ink);display:flex;align-items:center;gap:10px}
+.eyebrow::before,.eyebrow::after{content:"";width:28px;height:1px;background:var(--acc)}
+/* menu */
+.menu{background:var(--bg2)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:0 auto 44px;padding:6px;background:var(--card);border-radius:999px;width:fit-content;max-width:100%;box-shadow:var(--shadow-s)}
+.tab{min-height:46px;padding:0 22px;border:0;border-radius:999px;background:transparent;color:var(--mute);font:400 16px Heebo,sans-serif;cursor:pointer;transition:background .3s,color .3s}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected=true]{background:var(--ink);color:var(--bg)}
+.dishes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.dish{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 18px;padding:24px 26px;background:var(--card);border-radius:22px;box-shadow:0 1px 0 var(--line)}
+.dish .n{font-family:"Noto Serif Hebrew",Georgia,serif;font-size:34px;line-height:1;color:var(--acc);grid-row:span 2;width:34px;font-weight:300}
+.dish h3{font-family:Heebo,sans-serif;font-size:19px;font-weight:500;line-height:1.35;letter-spacing:0}
+.dish p{color:var(--mute);font-size:16px}
+.tag{display:inline-block;margin-inline-start:10px;padding:3px 12px;font-size:13px;font-weight:400;border-radius:999px;background:var(--acc-soft);color:var(--acc-ink);vertical-align:middle}
+.menu-note{margin-top:44px;display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:center;text-align:center}
+.menu-note p{font-size:18px;color:var(--mute);max-width:620px}
+/* platters */
+.plat-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.plat{background:var(--card);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-s);transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
+.plat:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.plat .pic{aspect-ratio:1/1;position:relative;overflow:hidden;margin:10px;border-radius:20px;background:radial-gradient(90% 80% at 50% 40%,#FFFDF8,#F1E6D5)}
+.plat .pic svg{position:absolute;inset:0;width:100%;height:100%;transform:scale(1.02);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.plat:hover .pic svg{transform:scale(1.08)}
+.plat .txt{padding:10px 24px 28px;display:flex;flex-direction:column;gap:8px}
+.plat h3{font-size:28px}
+.plat p{color:var(--mute);font-size:16px}
+/* how */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;position:relative}
+.step{background:var(--card);border-radius:var(--r);padding:34px 28px 32px;box-shadow:var(--shadow-s)}
+.step .k{width:56px;height:56px;border-radius:50%;background:var(--acc-soft);color:var(--acc-ink);display:flex;align-items:center;justify-content:center;font-family:"Noto Serif Hebrew",Georgia,serif;font-size:26px}
+.step h3{font-family:Heebo,sans-serif;font-size:20px;font-weight:500;letter-spacing:0;margin-top:22px}
+.step p{color:var(--mute);font-size:16px;margin-top:8px}
+/* reviews */
+.reviews{background:linear-gradient(180deg,var(--bg) 0%,#F8EBCF 100%)}
+.rev-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.rev{margin:0;background:var(--card);padding:38px 34px 30px;border-radius:var(--r);display:flex;flex-direction:column;gap:20px;box-shadow:var(--shadow-s)}
+.rev svg{color:var(--acc);width:34px;height:34px}
+.rev blockquote{margin:0;font-family:"Noto Serif Hebrew",Georgia,serif;font-size:22px;line-height:1.55;flex:1}
+.rev figcaption{color:var(--mute);font-size:15px;border-top:1px solid var(--line);padding-top:16px}
+.sample{margin-top:26px;font-size:14px;color:var(--dim);text-align:center}
+/* contact */
+.contact{background:var(--bg)}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(36px,6vw,90px);align-items:start}
+.contact h2{font-size:clamp(56px,6.4vw,92px)}
+.contact .side p{color:var(--mute);font-size:18px;margin-top:20px;max-width:420px}
+.phone{display:block;margin-top:30px;font-family:"Noto Serif Hebrew",Georgia,serif;font-size:clamp(40px,4.4vw,56px);color:var(--ink);text-decoration:none;line-height:1;direction:ltr;text-align:right}
+.wa-card{margin-top:28px;display:flex;align-items:center;gap:16px;padding:16px 20px;background:var(--card);border-radius:20px;text-decoration:none;max-width:400px;box-shadow:var(--shadow-s);transition:transform .3s}
+.wa-card:hover{transform:translateY(-2px)}
+.wa-card .dot{width:48px;height:48px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.wa-card b{display:block;font-size:17px}.wa-card span{color:var(--mute);font-size:15px}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-content:start}
+.contact form{background:var(--card);border-radius:var(--r);padding:clamp(24px,3vw,40px);box-shadow:var(--shadow)}
+.f{display:flex;flex-direction:column;gap:8px;font-size:15px;color:var(--mute)}
+.f.full{grid-column:1/-1}
+.f input,.f select,.f textarea{font:400 16px Heebo,sans-serif;color:var(--ink);background:var(--bg);border:1px solid var(--line);padding:14px 16px;border-radius:14px;transition:border-color .2s,background .2s,box-shadow .2s;width:100%;min-height:52px}
+.f select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--mute) 50%),linear-gradient(135deg,var(--mute) 50%,transparent 50%);background-position:22px 23px,16px 23px;background-size:6px 6px;background-repeat:no-repeat}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--acc);background:#fff;box-shadow:0 0 0 4px var(--acc-soft);outline:none}
+.f textarea{resize:vertical;min-height:110px}
+.f .err{color:#B2412A;font-size:14px}
+.f.bad input,.f.bad select{border-color:#D88A76;background:#FFF6F3}
+.req{color:var(--acc-ink)}
+.ok-msg{grid-column:1/-1;padding:20px 22px;background:var(--sage-soft);border-radius:18px;font-size:17px;color:#34502F}
+/* footer */
+.ftr{background:var(--bg2);padding-block:44px;color:var(--mute);font-size:15px}
+.ftr .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;justify-content:space-between}
+.ftr .logo{font-size:28px}
+/* floating whatsapp */
+.wa-fab{position:fixed;bottom:22px;left:22px;z-index:45;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 30px -10px rgba(20,90,40,.55);transition:transform .3s}
+.wa-fab:hover{transform:scale(1.07)}
+.wa-fab svg{width:30px;height:30px}
+/* modal + flow */
+.overlay{position:fixed;inset:0;z-index:60;background:rgba(58,48,42,.38);backdrop-filter:blur(10px);display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:max(3vw,12px)}
+.overlay.open{display:flex}
+.sheet{position:relative;width:100%;max-width:860px;background:var(--bg);border-radius:32px;margin-block:auto;box-shadow:0 50px 120px -30px rgba(58,40,20,.5);overflow:hidden}
+.sheet-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px clamp(22px,4vw,44px);border-bottom:1px solid var(--line);background:var(--card)}
+.sheet-top .logo{font-size:26px}
+.x{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font-size:18px;line-height:1}
+.x:hover{border-color:var(--ink)}
+.sheet-body{padding:clamp(26px,4vw,50px)}
+.sheet h2{font-size:clamp(42px,5vw,60px)}
+.sheet .sub{color:var(--mute);margin-top:12px;font-size:18px;max-width:580px}
+.prog{display:flex;gap:8px;margin-top:30px;margin-bottom:38px}
+.prog span{flex:1;height:6px;border-radius:99px;background:var(--bg3)}
+.prog span.on{background:var(--acc)}
+.prog-l{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:-30px;margin-bottom:38px;font-size:13px;color:var(--dim)}
+.prog-l .on{color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.chip span{display:flex;align-items:center;min-height:46px;padding:0 20px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:16px;color:var(--ink);transition:all .25s}
+.chip input:checked+span{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.chip input:focus-visible+span{outline:3px solid var(--acc);outline-offset:3px}
+.sheet-foot{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+.sheet-foot small{color:var(--dim);font-size:14px;max-width:420px}
+.done{text-align:center;padding-block:14px}
+.done .seal{width:108px;height:108px;margin:0 auto 24px}
+.done h2{font-size:clamp(48px,6vw,72px)}
+.done .sub{margin-inline:auto}
+.ticket{margin:32px auto 0;max-width:520px;text-align:start;background:var(--card);border-radius:22px;padding:24px 26px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 24px;font-size:16px;box-shadow:var(--shadow-s)}
+.ticket dt{color:var(--dim)}.ticket dd{margin:0;font-weight:400}
+.next{margin:30px auto 0;max-width:560px;display:grid;gap:12px;text-align:start}
+.next div{display:flex;gap:14px;align-items:flex-start;color:var(--mute)}
+.next b{color:var(--ink)}
+.next i{flex:none;width:30px;height:30px;border-radius:50%;background:var(--acc-soft);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:14px;color:var(--acc-ink)}
+.demo{margin-top:30px;padding:16px 18px;background:var(--bg2);border-radius:18px;font-size:14px;color:var(--mute);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center}
+.demo button{background:var(--card);border:1px solid var(--line);border-radius:999px;color:var(--ink);min-height:42px;padding:0 18px;font:400 14px Heebo,sans-serif;cursor:pointer}
+.pick-group{margin-top:32px}
+.pick-group h3{font-size:32px;margin-bottom:14px;display:flex;align-items:baseline;gap:14px}
+.pick-group h3 small{font:300 15px Heebo,sans-serif;color:var(--dim)}
+.picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.pick{position:relative;display:flex;gap:14px;align-items:flex-start;padding:16px 18px;background:var(--card);border:1px solid var(--line);border-radius:18px;cursor:pointer;transition:border-color .2s,background .2s,box-shadow .2s}
+.pick input{position:absolute;opacity:0}
+.pick .box{flex:none;width:24px;height:24px;border-radius:8px;border:1.5px solid var(--dim);display:flex;align-items:center;justify-content:center;margin-top:2px;transition:all .2s}
+.pick .box svg{width:15px;height:15px;opacity:0;color:#fff}
+.pick b{display:block}.pick span{color:var(--mute);font-size:15px}
+.pick:has(input:checked){border-color:var(--acc);background:#FFFBF2;box-shadow:0 0 0 3px var(--acc-soft)}
+.pick:has(input:checked) .box{background:var(--acc-ink);border-color:var(--acc-ink)}
+.pick:has(input:checked) .box svg{opacity:1}
+.pick:has(input:focus-visible){outline:3px solid var(--acc);outline-offset:2px}
+.summary{position:sticky;bottom:0;margin:30px calc(-1*clamp(26px,4vw,50px)) calc(-1*clamp(26px,4vw,50px));padding:18px clamp(26px,4vw,50px);background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.summary b{color:var(--acc-ink)}
+.pay-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px;margin-top:8px}
+.pay-box{background:var(--card);border-radius:24px;padding:26px;box-shadow:var(--shadow-s)}
+.pay-box h3{font-size:30px;margin-bottom:16px}
+.pay-list{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:16px;color:var(--mute)}
+.pay-list li{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.pay-list li b{color:var(--ink);font-weight:400}
+.secure{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:210px;border-radius:18px;background:var(--bg2);border:1.5px dashed var(--line);text-align:center;padding:20px;color:var(--mute);font-size:15px}
+.secure svg{width:36px;height:36px;color:var(--acc-ink)}
+.agree{display:flex;gap:12px;align-items:flex-start;margin-top:18px;font-size:15px;color:var(--mute);cursor:pointer}
+.agree input{width:22px;height:22px;accent-color:var(--acc-ink);margin-top:2px;flex:none}
+.mail-st{margin:18px auto 0;max-width:560px;font-size:16px;padding:12px 18px;border-radius:16px;background:var(--bg2)}.mail-st:empty{display:none}.mail-st[data-state=ok]{background:var(--sage-soft);color:#34502F}.mail-st[data-state=bad]{background:#FBE9E4;color:#8E3420}.mail-st[data-state=wait]{color:var(--mute)}
+.reveal{will-change:transform,opacity}
+@media(max-width:980px){
+.hero .wrap{grid-template-columns:minmax(0,1fr)}
+.board{max-width:500px;order:-1}
+.note.n1{inset-inline-start:0}.note.n2{inset-inline-end:0}
+.plat-row,.steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+.rev-grid{grid-template-columns:minmax(0,1fr)}
+.contact .wrap{grid-template-columns:minmax(0,1fr)}
+.pay-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:820px){
+.nav{display:none;position:absolute;top:80px;inset-inline:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px max(5vw,20px) 18px}
+.nav.open{display:flex}.nav a{padding:14px 0;font-size:19px;color:var(--ink);border-bottom:1px solid var(--line)}.nav a::after{display:none}
+.menu-btn{display:flex;align-items:center;justify-content:center;margin-inline-start:auto}
+.hdr .btn{display:none}
+.tabs{border-radius:24px}
+}
+@media(max-width:640px){
+.dishes,.plat-row,.steps,form,.picks{grid-template-columns:minmax(0,1fr)}
+.prog-l{display:none}
+.hero .ctas .btn{flex:1 1 100%}
+.note{font-size:13px;padding:10px 12px}.note.n1{top:2%}.note.n2{bottom:2%}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== v3: photo hero, logo, trust strip, gallery ===== */
+h1,h2,h3{font-family:"Noto Serif Hebrew",Georgia,serif;font-weight:400;letter-spacing:0}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.logo .mark{width:34px;height:42px;flex:none;color:var(--ink);transition:color .4s}
+.logo .wm{display:flex;flex-direction:column;line-height:1}
+.logo .wm-t{font-family:'Noto Serif Hebrew',Georgia,serif;font-size:31px;letter-spacing:.5px;white-space:nowrap}
+.logo .wm-t i{font-style:normal;color:var(--acc)}
+.logo .wm-s{font:300 12px Heebo,sans-serif;letter-spacing:3px;color:var(--mute);margin-top:6px;transition:color .4s}
+.hdr{position:fixed;inset-inline:0;top:0;background:transparent;backdrop-filter:none;border-bottom:1px solid transparent;transition:background .5s,border-color .5s,backdrop-filter .5s}
+.hdr .nav a,.hdr .logo,.hdr .logo .mark,.hdr .menu-btn{color:#FFF8EC}
+.hdr .logo .wm-s{color:rgba(255,248,236,.75)}
+.hdr .nav a::after{background:#F2C46A}
+.hdr .btn-acc{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55);backdrop-filter:blur(6px)}
+.hdr .btn-acc:hover{background:#fff;color:var(--ink)}
+.hdr.scrolled{background:rgba(251,247,241,.9);backdrop-filter:blur(16px) saturate(1.2);border-color:var(--line)}
+.hdr.scrolled .nav a,.hdr.scrolled .menu-btn{color:var(--mute)}.hdr.scrolled .nav a:hover{color:var(--ink)}
+.hdr.scrolled .logo,.hdr.scrolled .logo .mark{color:var(--ink)}.hdr.scrolled .logo .wm-s{color:var(--mute)}
+.hdr.scrolled .btn-acc{background:var(--ink);color:var(--bg);box-shadow:var(--shadow-s);backdrop-filter:none}
+.hero{position:relative;min-height:max(640px,100svh);display:flex;align-items:center;overflow:hidden;background:#3A302A;isolation:isolate}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
+.hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(270deg,rgba(30,22,16,.84) 0%,rgba(30,22,16,.58) 40%,rgba(30,22,16,.08) 72%),linear-gradient(0deg,rgba(30,22,16,.45),rgba(30,22,16,0) 40%)}
+.hero .wrap.hero-in{display:block;width:100%;padding-block:150px 120px;color:#FFF8EC}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:15px;letter-spacing:1px;color:#F6E2B8}
+.hero-eyebrow::before{content:"";width:34px;height:1px;background:#F2C46A}
+.hero h1{font-size:clamp(64px,8.4vw,132px);line-height:.98;margin-top:22px;max-width:780px;color:#FFF8EC;text-shadow:0 2px 30px rgba(0,0,0,.25)}
+.hero h1 .y{color:#F6D58E;font-weight:400}
+.hero h1 .y::after{display:none}
+.hero .lead{color:rgba(255,248,236,.9);font-size:clamp(18px,1.6vw,21px);max-width:520px;margin-top:24px}
+.btn-honey{background:#F2C46A;color:#2E2621;box-shadow:0 18px 40px -16px rgba(242,196,106,.7)}.btn-honey:hover{background:#F7D58F;transform:translateY(-2px)}
+.btn-glass{background:rgba(255,255,255,.12);color:#FFF8EC;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5);backdrop-filter:blur(8px)}.btn-glass:hover{background:#fff;color:var(--ink)}
+.scroll-cue{position:absolute;bottom:28px;left:50%;translate:-50% 0;width:28px;height:46px;border-radius:99px;box-shadow:inset 0 0 0 1.5px rgba(255,248,236,.7)}
+.scroll-cue span{position:absolute;top:9px;left:50%;width:4px;height:8px;margin-left:-2px;border-radius:9px;background:#FFF8EC;animation:cue 1.8s ease-in-out infinite}
+@keyframes cue{0%{opacity:0;transform:translateY(0)}40%{opacity:1}100%{opacity:0;transform:translateY(14px)}}
+.trust{position:relative;z-index:2;margin-top:-64px}
+.trust-row{list-style:none;margin:0;padding:34px clamp(20px,3vw,44px);background:var(--card);border-radius:28px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.trust-row li{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;column-gap:16px;align-items:center;padding-inline-start:8px;border-inline-start:1px solid var(--line)}
+.trust-row li:first-child{border-inline-start:0;padding-inline-start:0}
+.trust-row svg{grid-row:span 2;width:44px;height:44px;fill:none;stroke:var(--acc-ink);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.trust-row b{font-family:'Noto Serif Hebrew',Georgia,serif;font-weight:400;font-size:23px;line-height:1.1}
+.trust-row span{color:var(--mute);font-size:14.5px;line-height:1.4}
+.marq{margin-top:clamp(56px,7vw,96px)}
+.plat .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.plat:hover .pic img{transform:scale(1.06)}
+.plat .pic{aspect-ratio:4/5}
+.gallery{padding:0 max(2vw,10px) clamp(70px,9vw,120px)}
+.gal-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:clamp(150px,15vw,230px);gap:12px;max-width:1500px;margin:0 auto}
+.gal-grid figure{margin:0;overflow:hidden;border-radius:24px;position:relative;background:var(--bg3)}
+.gal-grid img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover}
+.g5 img{object-position:50% 30%}.g1{grid-column:span 3;grid-row:span 2}.g2{grid-column:span 2}.g3{grid-column:span 1}.g4{grid-column:span 1}.g5{grid-column:span 2}
+.credits{margin-top:18px;font-size:12.5px;color:var(--dim);display:block}
+.credits a{color:inherit}
+@media(max-width:980px){.trust-row{grid-template-columns:repeat(2,minmax(0,1fr))}.trust-row li:nth-child(3){border-inline-start:0;padding-inline-start:0}.gal-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:200px}.g1{grid-column:span 2;grid-row:span 1}.g2,.g3,.g4,.g5{grid-column:span 1}}
+@media(max-width:820px){.hdr .nav.open{background:var(--bg)}.hdr .nav.open a{color:var(--ink)}}
+@media(max-width:640px){.trust-row{grid-template-columns:minmax(0,1fr);padding:22px}.trust-row li{border-inline-start:0;padding-inline-start:0}.hero h1{font-size:clamp(52px,14vw,72px)}.hero .wrap.hero-in{padding-block:130px 100px}.hero-shade{background:linear-gradient(0deg,rgba(30,22,16,.85) 10%,rgba(30,22,16,.35) 70%,rgba(30,22,16,.5))}.logo .wm-t{font-size:26px}.logo .wm-s{display:none}}
+
+/* ===== v4: type refresh, menu photos, reviews ===== */
+h1,h2,h3{font-family:"Noto Serif Hebrew",Georgia,serif;font-weight:400;letter-spacing:-.3px}
+body{font-family:Heebo,system-ui,sans-serif}
+.hero h1{font-weight:500;letter-spacing:-1px;line-height:1.04}
+.hero h1 .y{font-weight:300}
+.hero .lead b{color:#F6D58E;font-weight:500}
+.shead h2{font-weight:400;font-size:clamp(46px,5.4vw,76px)}
+.shead h2 em{font-weight:300;font-style:normal}
+.eyebrow,.hero-eyebrow{font-family:"Amatic SC",Heebo,sans-serif;font-weight:700;font-size:28px;letter-spacing:.5px;line-height:1}
+.hero-eyebrow{font-size:31px}
+.logo .wm-t{font-family:"Noto Serif Hebrew",Georgia,serif;font-weight:500;font-size:26px;letter-spacing:0}
+.logo .wm-s{font-family:Heebo,sans-serif}
+.lead,.shead p{font-weight:300}
+.menu-panel{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;align-items:start}
+.menu-pic{margin:0;position:sticky;top:110px;border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:var(--bg3);box-shadow:var(--shadow)}
+.menu-pic img{width:100%;height:100%;object-fit:cover;display:block}
+.menu-pic figcaption{position:absolute;inset-inline:14px;bottom:14px;background:rgba(255,253,248,.9);backdrop-filter:blur(6px);border-radius:14px;padding:10px 14px;font-size:14px;color:var(--mute)}
+.menu-panel .dishes{grid-template-columns:minmax(0,1fr);gap:12px}
+.dish{padding:15px 22px}
+.dish .n{font-family:"Noto Serif Hebrew",serif;font-size:22px;color:var(--acc);width:30px;padding-top:2px}
+.dish h3{font-family:Heebo,sans-serif;font-size:18px;font-weight:500}
+.dish-note{font-size:14px;color:var(--dim);padding:4px 6px}
+.rev{gap:18px;padding:34px 32px 28px}
+.stars{color:var(--acc);letter-spacing:3px;font-size:17px}
+.rev blockquote{font-family:"Noto Serif Hebrew",Georgia,serif;font-size:19px;line-height:1.75;font-weight:400}
+.rev figcaption{display:flex;align-items:center;gap:12px}
+.rev figcaption .av{width:44px;height:44px;border-radius:50%;background:var(--acc-soft);color:var(--acc-ink);display:flex;align-items:center;justify-content:center;font-family:"Noto Serif Hebrew",serif;font-size:20px;flex:none}
+.rev figcaption b{display:block;color:var(--ink);font-weight:500;font-size:16px}
+.rev figcaption span span{display:block;font-size:14px;color:var(--mute)}
+.trust-row b{font-family:"Noto Serif Hebrew",Georgia,serif;font-size:20px;font-weight:500}
+.plat h3,.pay-box h3,.pick-group h3{font-weight:500}
+@media(max-width:860px){.menu-panel{grid-template-columns:minmax(0,1fr)}.menu-pic{position:relative;top:0;aspect-ratio:16/10}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 14.98L2 22l5.17-1.5A9.92 9.92 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.07.9.9-3-.2-.31a8.2 8.2 0 1 1 6.85 3.74Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.16.25-.63.8-.78.96-.14.16-.29.19-.53.06a6.7 6.7 0 0 1-3.32-2.9c-.25-.43.25-.4.72-1.33.08-.16.04-.3-.02-.42l-.75-1.8c-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3 2.74 2.74 0 0 0-.85 2.04 4.76 4.76 0 0 0 1 2.53 10.9 10.9 0 0 0 4.17 3.69c1.55.67 2.16.73 2.94.61.47-.07 1.46-.6 1.66-1.17.2-.58.2-1.07.15-1.17-.06-.11-.22-.17-.47-.3Z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></symbol>
+<symbol id="i-q" viewBox="0 0 40 40"><path fill="currentColor" d="M4 30V20C4 12 8 7 16 5l1.5 3.5C13 10 11 13 11 17h6v13H4Zm19 0V20c0-8 4-13 12-15l1.5 3.5C32 10 30 13 30 17h6v13H23Z"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2l-5.9 3.3 1.4-6.6-5-4.5 6.6-.7z"/></symbol>
+<radialGradient id="g-wood" cx="45%" cy="38%" r="70%"><stop offset="0" stop-color="#D4955A"/><stop offset=".7" stop-color="#A9672F"/><stop offset="1" stop-color="#7A4719"/></radialGradient>
+<linearGradient id="g-cheese" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE7A0"/><stop offset=".55" stop-color="#F7CF5A"/><stop offset="1" stop-color="#E2AE2E"/></linearGradient>
+<linearGradient id="g-rind" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#C98E25"/><stop offset="1" stop-color="#9E6B14"/></linearGradient>
+<radialGradient id="g-brie" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#FFFDF6"/><stop offset=".8" stop-color="#EFE7D4"/><stop offset="1" stop-color="#D9CDB1"/></radialGradient>
+<radialGradient id="g-grape" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#B98AC0"/><stop offset=".55" stop-color="#6E3B73"/><stop offset="1" stop-color="#3C1C42"/></radialGradient>
+<radialGradient id="g-ggrape" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#E9F3B4"/><stop offset=".6" stop-color="#B7CC62"/><stop offset="1" stop-color="#7E9530"/></radialGradient>
+<radialGradient id="g-honey" cx="45%" cy="40%" r="60%"><stop offset="0" stop-color="#FFC94A"/><stop offset="1" stop-color="#C77A06"/></radialGradient>
+<radialGradient id="g-straw" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#FF7B6B"/><stop offset=".7" stop-color="#D92D2D"/><stop offset="1" stop-color="#9C1616"/></radialGradient>
+<radialGradient id="g-spot" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#6B4A2A" stop-opacity=".0"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+<linearGradient id="g-crust" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E4A75B"/><stop offset="1" stop-color="#9F6122"/></linearGradient>
+<linearGradient id="g-cake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF6DF"/><stop offset="1" stop-color="#F1DDAE"/></linearGradient>
+<symbol id="grape" viewBox="-10 -10 20 20"><circle r="9" fill="url(#g-grape)"/><ellipse cx="-3" cy="-3.5" rx="2.4" ry="1.6" fill="#fff" opacity=".5"/></symbol>
+<symbol id="ggrape" viewBox="-10 -10 20 20"><circle r="9" fill="url(#g-ggrape)"/><ellipse cx="-3" cy="-3.5" rx="2.4" ry="1.6" fill="#fff" opacity=".6"/></symbol>
+<symbol id="cracker" viewBox="-22 -22 44 44"><rect x="-19" y="-19" width="38" height="38" rx="5" fill="#E6B877"/><rect x="-19" y="-19" width="38" height="38" rx="5" fill="none" stroke="#C48E48" stroke-width="2"/><g fill="#B97F38"><circle cx="-9" cy="-9" r="1.6"/><circle cx="0" cy="-9" r="1.6"/><circle cx="9" cy="-9" r="1.6"/><circle cx="-9" cy="0" r="1.6"/><circle cx="0" cy="0" r="1.6"/><circle cx="9" cy="0" r="1.6"/><circle cx="-9" cy="9" r="1.6"/><circle cx="0" cy="9" r="1.6"/><circle cx="9" cy="9" r="1.6"/></g></symbol>
+<symbol id="leaf" viewBox="-12 -30 24 60"><path d="M0-28C9-14 9 14 0 28-9 14-9-14 0-28Z" fill="#5E8A3A"/><path d="M0-26V26" stroke="#3F6424" stroke-width="1.5"/></symbol>
+</defs>
+</svg>
+
+<header class="hdr" id="hdr">
+<div class="wrap">
+<a class="logo" href="#top" aria-label="חלב ודבש, קייטרינג חלבי — לראש העמוד"><svg class="mark" viewBox="0 0 48 58" aria-hidden="true"><defs><clipPath id="dropc"><path d="M24 3C24 3 7 25 7 37a17 17 0 0 0 34 0C41 25 24 3 24 3Z"/></clipPath><linearGradient id="hon" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2C46A"/><stop offset="1" stop-color="#D99A2B"/></linearGradient></defs><path d="M24 3C24 3 7 25 7 37a17 17 0 0 0 34 0C41 25 24 3 24 3Z" fill="#FFFDF8"/><g clip-path="url(#dropc)"><path d="M2 39q5.5-4 11 0t11 0 11 0 11 0V60H2Z" fill="url(#hon)"/><path d="M2 39q5.5-4 11 0t11 0 11 0 11 0" fill="none" stroke="#FFF3D6" stroke-width="1.2" opacity=".8"/></g><path d="M24 3C24 3 7 25 7 37a17 17 0 0 0 34 0C41 25 24 3 24 3Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14 33c0-5 3-10 6-14" fill="none" stroke="#E8D9BF" stroke-width="2" stroke-linecap="round"/></svg><span class="wm"><span class="wm-t">חלב <i>ו</i>דבש</span><span class="wm-s">קייטרינג חלבי</span></span></a>
+<nav class="nav" id="nav" aria-label="ניווט ראשי">
+<a href="#menu">התפריט</a>
+<a href="#platters">מגשים וקינוחים</a>
+<a href="#how">איך מזמינים</a>
+<a href="#reviews">לקוחות</a>
+<a href="#contact">צרו קשר</a>
+</nav>
+<button class="btn btn-acc" data-order type="button">פתיחת הזמנה</button>
+<button class="menu-btn" id="menuBtn" type="button" aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="nav"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="2"/></svg></button>
+</div>
+</header>
+
+<main id="top">
+<section class="hero" aria-label="פתיחה">
+<img class="hero-img" src="img/hero.jpg" alt="" fetchpriority="high">
+<div class="hero-shade" aria-hidden="true"></div>
+<div class="wrap hero-in">
+<span class="hero-eyebrow reveal-h">קייטרינג חלבי לאירועים · כשר למהדרין</span>
+<h1 aria-label="שולחן חלבי שזוכרים."><span class="l"><span>שולחן חלבי</span></span><span class="l"><span class="y">שזוכרים.</span></span></h1>
+<p class="lead reveal-h">גבינות שמתמסרות, מאפים חמים וקינוחים שגונבים את ההצגה. <b>אתם חוגגים, אנחנו מגישים.</b></p>
+<div class="ctas reveal-h">
+<button class="btn btn-honey" data-order type="button">פתיחת הזמנה לאירוע</button>
+<a class="btn btn-glass" href="https://wa.me/972509153240?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A7%D7%99%D7%99%D7%98%D7%A8%D7%99%D7%A0%D7%92%20%D7%9C%D7%90%D7%99%D7%A8%D7%95%D7%A2" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>שיחה בוואטסאפ</a>
+</div>
+</div>
+
+</section>
+
+<section class="trust" id="trust" aria-label="למה אצלנו">
+<div class="wrap"><ul class="trust-row">
+<li class="reveal"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M17 8h14M19 8v6l-6 8v18a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V22l-6-8V8"/><path d="M13 27h22"/></svg><b>חלב ישראל</b><span>כל מוצרי החלב שלנו</span></li>
+<li class="reveal"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="20" r="12"/><path d="M18 30l-3 12 9-4 9 4-3-12"/><path d="M19 20l3.5 3.5L29 17"/></svg><b>כשרות מהדרין</b><span>בהשגחת רבנות רחובות</span></li>
+<li class="reveal"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="26" r="9"/><path d="M24 7v4M24 41v4M7 26H3M45 26h-4M11.5 13.5l2.8 2.8M33.7 35.7l2.8 2.8M11.5 38.5l2.8-2.8M33.7 16.3l2.8-2.8"/></svg><b>טרי מהבוקר</b><span>הכל מוכן ביום האירוע</span></li>
+<li class="reveal"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 34h36M9 34a15 15 0 0 1 30 0M24 15v4M20 15h8"/><path d="M4 40h40"/></svg><b>מהעריכה ועד הפינוי</b><span>צוות הגשה מקצועי</span></li>
+</ul></div>
+</section>
+
+<div class="marq" aria-hidden="true">
+<div class="marq-track" id="marq">
+<div class="marq-item">בריתות<i></i>בר מצווה<i></i>שבע ברכות<i></i>קידושים<i></i>פדיון הבן<i></i>אירועי חברה<i></i>שבת חתן<i></i>כנסים<i></i></div>
+<div class="marq-item">בריתות<i></i>בר מצווה<i></i>שבע ברכות<i></i>קידושים<i></i>פדיון הבן<i></i>אירועי חברה<i></i>שבת חתן<i></i>כנסים<i></i></div>
+</div>
+</div>
+
+<section class="menu band" id="menu">
+<div class="wrap">
+<div class="shead reveal">
+<span class="eyebrow">מה מגישים</span>
+<h2>התפריט</h2>
+<p>מסתובבים בין הקטגוריות, מסמנים מה שעושה חשק, ובוחרים את התפריט ישר מהאתר. את הכמויות המדויקות לפי מספר האורחים אנחנו כבר נחשב.</p>
+</div>
+<div class="tabs" role="tablist" id="tabs" aria-label="קטגוריות בתפריט"></div>
+<div class="menu-panel" id="dishesWrap" role="tabpanel"><figure class="menu-pic"><img id="menuPic" src="img/m_start.jpg" alt=""><figcaption id="menuCap"></figcaption></figure><div class="dishes" id="dishes"></div></div>
+<div class="menu-note">
+<p>אהבתם? פותחים הזמנה, ומיד עם האישור בוחרים את כל המנות כאן באתר, בכמה קליקים.</p>
+<button class="btn btn-dark" data-order type="button">פתיחת הזמנה</button>
+</div>
+</div>
+</section>
+
+<section class="band" id="platters">
+<div class="wrap">
+<div class="shead reveal">
+<span class="eyebrow">לאירוח ולקינוח</span>
+<h2>מגשים <em>ומתוקים</em></h2>
+<p>מגשי אירוח שעוצרים את השיחה, וקינוחים שמסיימים את הערב בטעם טוב. מתאימים גם להזמנה בלי קייטרינג מלא.</p>
+</div>
+<div class="plat-row">
+<article class="plat reveal">
+<div class="pic"><img src="img/plat1.jpg" alt="מגש גבינות בוטיק"></div>
+<div class="txt"><h3>מגש גבינות בוטיק</h3><p>גבינות קשות ורכות, ענבים, אגוזים, דבש וקרקרים ביתיים.</p></div>
+</article>
+<article class="plat reveal">
+<div class="pic"><img src="img/plat2.jpg" alt="עוגת גבינה"></div>
+<div class="txt"><h3>עוגת גבינה פירורים</h3><p>הקלאסיקה, אפויה לאט, עם קראמבל חמאה פריך מלמעלה.</p></div>
+</article>
+<article class="plat reveal">
+<div class="pic"><img src="img/plat3.jpg" alt="קינוחים אישיים בכוסות ופרוסות עוגה"></div>
+<div class="txt"><h3>קינוחים אישיים</h3><p>כוסות קרם ופירות, ופרוסות שכבות שוקולד ושמנת.</p></div>
+</article>
+<article class="plat reveal">
+<div class="pic"><img src="img/plat4.jpg" alt="מגש פירות"></div>
+<div class="txt"><h3>מגש פירות העונה</h3><p>נחתך ונבדק בבוקר האירוע, ומסודר כמו פלטת צבעים.</p></div>
+</article>
+</div>
+</div>
+</section>
+<section class="gallery" aria-label="מהשולחן שלנו">
+<div class="gal-grid">
+<figure class="g1 reveal"><img src="img/g1.jpg" alt="שולחן אירוח חלבי"></figure>
+<figure class="g2 reveal"><img src="img/g2.jpg" alt="מאפים טריים"></figure>
+<figure class="g3 reveal"><img src="img/g3.jpg" alt="קיש ביתי"></figure>
+<figure class="g4 reveal"><img src="img/g4.jpg" alt="קינוחים אישיים"></figure>
+<figure class="g5 reveal"><img src="img/g5.jpg" alt="מגש גבינות ופירות"></figure>
+</div>
+</section>
+
+<section class="band" id="how" style="background:var(--bg2)">
+<div class="wrap">
+<div class="shead reveal">
+<span class="eyebrow">ארבעה צעדים קטנים</span>
+<h2>איך <em>מזמינים</em></h2>
+<p>מהרגע שפתחתם הזמנה ועד הביס האחרון, הכל פשוט, שקוף ובקצב שלכם.</p>
+</div>
+<div class="steps">
+<div class="step reveal"><div class="k">1</div><h3>פותחים הזמנה</h3><p>סוג האירוע, תאריך, מיקום ומספר אורחים. לוקח פחות מדקה.</p></div>
+<div class="step reveal"><div class="k">2</div><h3>שיחה ואישור</h3><p>נציג חוזר אליכם, מוודא זמינות ומאשר את האירוע.</p></div>
+<div class="step reveal"><div class="k">3</div><h3>בוחרים תפריט באתר</h3><p>מסמנים את המנות שאהבתם, ואנחנו מתאימים כמויות.</p></div>
+<div class="step reveal"><div class="k">4</div><h3>תשלום ושקט</h3><p>תשלום מאובטח, ואנחנו לוקחים את זה מכאן ועד הפינוי.</p></div>
+</div>
+</div>
+</section>
+
+<section class="reviews band" id="reviews">
+<div class="wrap">
+<div class="shead reveal">
+<span class="eyebrow">מהלקוחות שלנו</span>
+<h2>מה אומרים <em>עלינו</em></h2>
+<p>הרגע שהכי משמח אותנו: כשהאורחים כבר הלכו, והטלפון מצלצל רק כדי להגיד תודה.</p>
+</div>
+<div class="rev-grid">
+<figure class="rev reveal"><div class="stars" aria-label="5 מתוך 5">★★★★★</div><blockquote>ביקשנו שולחן חלבי שיהיה גם מרשים וגם ביתי, וקיבלנו בדיוק את זה. שבוע אחרי האירוע עוד שאלו אותי מאיפה הקישים, והמגשים נראו כמו מתוך מגזין.</blockquote><figcaption><span class="av" aria-hidden="true">ת</span><span><b>תמר קליין</b><span>בר מצווה · רחובות</span></span></figcaption></figure>
+<figure class="rev reveal"><div class="stars" aria-label="5 מתוך 5">★★★★★</div><blockquote>בבוקר של ברית אין זמן לכלום. הם הגיעו לפני כולם, סידרו הכל בשקט ובטעם, ולא הייתי צריך לרדוף אחרי אף אחד. בשמחה כזאת זה בדיוק מה שצריך.</blockquote><figcaption><span class="av" aria-hidden="true">א</span><span><b>אליהו חיים לוין</b><span>ברית · בני ברק</span></span></figcaption></figure>
+<figure class="rev reveal"><div class="stars" aria-label="5 מתוך 5">★★★★★</div><blockquote>הזמנו לשבע ברכות אחת ונשארנו לכל השבוע. הסלמון והקינוחים נעלמו מהשולחן תוך דקות, ואת היחס האישי מהטלפון הראשון אנחנו לא שוכחים.</blockquote><figcaption><span class="av" aria-hidden="true">ח</span><span><b>משפחת חדד</b><span>שבע ברכות · אשדוד</span></span></figcaption></figure>
+</div>
+</div>
+</section>
+
+<section class="contact band" id="contact">
+<div class="wrap">
+<div class="side reveal">
+<h2>בואו<br>נדבר.</h2>
+<p>שאלה על התפריט, על הכשרות או על תאריך פנוי? השאירו פרטים ונחזור אליכם עוד היום.</p>
+<a class="phone" href="tel:+972509153240">050-915-3240</a>
+<a class="wa-card" href="https://wa.me/972509153240" target="_blank" rel="noopener"><span class="dot"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg></span><span><b>כתבו לנו בוואטסאפ</b><span>מענה מהיר, גם לשאלות קטנות</span></span></a>
+</div>
+<form id="contactForm" novalidate>
+<label class="f"><span>שם מלא <span class="req" aria-hidden="true">*</span></span><input id="c-name" name="name" type="text" autocomplete="name" required><span class="err" aria-live="polite"></span></label>
+<label class="f"><span>טלפון <span class="req" aria-hidden="true">*</span></span><input id="c-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><span class="err" aria-live="polite"></span></label>
+<label class="f full">מייל<input id="c-mail" name="email" type="email" autocomplete="email"></label>
+<label class="f full">איך נוכל לעזור?<textarea id="c-msg" name="msg" rows="4"></textarea></label>
+<div class="f full"><button class="btn btn-acc" type="submit" style="align-self:flex-start">שליחת פרטים</button></div>
+</form>
+</div>
+</section>
+</main>
+
+<footer class="ftr">
+<div class="wrap">
+<a class="logo" href="#top" aria-label="חלב ודבש, קייטרינג חלבי — לראש העמוד"><svg class="mark" viewBox="0 0 48 58" aria-hidden="true"><defs><clipPath id="dropc"><path d="M24 3C24 3 7 25 7 37a17 17 0 0 0 34 0C41 25 24 3 24 3Z"/></clipPath><linearGradient id="hon" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2C46A"/><stop offset="1" stop-color="#D99A2B"/></linearGradient></defs><path d="M24 3C24 3 7 25 7 37a17 17 0 0 0 34 0C41 25 24 3 24 3Z" fill="#FFFDF8"/><g clip-path="url(#dropc)"><path d="M2 39q5.5-4 11 0t11 0 11 0 11 0V60H2Z" fill="url(#hon)"/><path d="M2 39q5.5-4 11 0t11 0 11 0 11 0" fill="none" stroke="#FFF3D6" stroke-width="1.2" opacity=".8"/></g><path d="M24 3C24 3 7 25 7 37a17 17 0 0 0 34 0C41 25 24 3 24 3Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14 33c0-5 3-10 6-14" fill="none" stroke="#E8D9BF" stroke-width="2" stroke-linecap="round"/></svg><span class="wm"><span class="wm-t">חלב <i>ו</i>דבש</span><span class="wm-s">קייטרינג חלבי</span></span></a>
+<span>קייטרינג חלבי · חלב ישראל · כשרות רבנות רחובות מהדרין</span>
+<span style="direction:ltr">050-915-3240</span>
+</div>
+<div class="wrap credits">האתר בגרסת הדגמה: התמונות להמחשה (מאגרי Pexels ו-Pixabay, ברישיון חופשי) וההמלצות לדוגמה.</div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/972509153240" target="_blank" rel="noopener" aria-label="שיחה בוואטסאפ"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+
+<!-- ORDER FLOW -->
+<div class="overlay" id="ov" role="dialog" aria-modal="true" aria-labelledby="ovTitle">
+<div class="sheet" id="sheet">
+<div class="sheet-top"><span class="logo"><svg class="mark" viewBox="0 0 48 58" aria-hidden="true"><defs><clipPath id="dropc"><path d="M24 3C24 3 7 25 7 37a17 17 0 0 0 34 0C41 25 24 3 24 3Z"/></clipPath><linearGradient id="hon" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2C46A"/><stop offset="1" stop-color="#D99A2B"/></linearGradient></defs><path d="M24 3C24 3 7 25 7 37a17 17 0 0 0 34 0C41 25 24 3 24 3Z" fill="#FFFDF8"/><g clip-path="url(#dropc)"><path d="M2 39q5.5-4 11 0t11 0 11 0 11 0V60H2Z" fill="url(#hon)"/><path d="M2 39q5.5-4 11 0t11 0 11 0 11 0" fill="none" stroke="#FFF3D6" stroke-width="1.2" opacity=".8"/></g><path d="M24 3C24 3 7 25 7 37a17 17 0 0 0 34 0C41 25 24 3 24 3Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14 33c0-5 3-10 6-14" fill="none" stroke="#E8D9BF" stroke-width="2" stroke-linecap="round"/></svg><span class="wm"><span class="wm-t">חלב <i>ו</i>דבש</span><span class="wm-s">קייטרינג חלבי</span></span></span><button class="x" id="ovClose" type="button" aria-label="סגירה">✕</button></div>
+<div class="sheet-body" id="sheetBody"></div>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+{
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const MENU=[
+{k:'start',t:'פתיחה וסלטים',img:'img/m_start.jpg',cap:'סלט יווני עם פטה כבשים',items:[
+['סלט עלים, אגסים ופקאן מסוכר','ויניגרט דבש וחרדל, גבינת עיזים מפוררת','להיט'],
+['סלט יווני של פעם','עגבניות, מלפפון, זיתי קלמטה ופטה כבשים'],
+['סלט חלומי צרוב','עלים, תאנים טריות וסירופ רימונים'],
+['קפרזה עגבניות שרי','מוצרלה טרייה, בזיליקום ושמן זית'],
+['מאפי גבינות בוטיק','בורקיטס, משולשי פילו ובצק עלים חמאה'],
+['פוקאצ׳ה ביתית','לאבנה, זיתים וחמאת עשבי תיבול'],
+['סלט קינואה וירקות קלויים','רימונים, נענע ולימון כבוש']]},
+{k:'main',t:'עיקריות',img:'img/m_main.jpg',cap:'פנה ברוטב שמנת ופטריות',items:[
+['רביולי בטטה ברוטב שמנת ומרווה','פרמזן מגורד ואגוזי מלך קלויים','להיט'],
+['פנה שמנת ופטריות יער','רוטב קטיפתי, פטרוזיליה ופרמזן'],
+['ניוקי ארבע גבינות','רוטב גבינות עשיר ומעט אגוז מוסקט'],
+['קנלוני ריקוטה ותרד','ברוטב עגבניות ובשמל, אפוי עד הזהבה'],
+['ריזוטו פטריות ופרמזן','אורז ארבוריו, חמאה ושמן כמהין'],
+['פסטה רוזה ובזיליקום','עגבניות, שמנת וקצת חריף, למי שאוהב']]},
+{k:'fish',t:'דגים',img:'img/m_fish.jpg',cap:'סטייק סלמון עם שמיר ולימון',note:'הדגים מבושלים ומוגשים בכלים נפרדים.',items:[
+['פילה סלמון בעשבי תיבול','שמיר, לימון ושום קונפי','להיט'],
+['סלמון בגלייז דבש וסויה','שומשום קלוי ובצל ירוק'],
+['פילה מוסר ים בתנור','עגבניות שרי, זיתים ותפוחי אדמה'],
+['דניס שלם על הגריל','לימון כבוש, שמן זית ועשבים'],
+['קציצות דג ברוטב עגבניות','מתכון ביתי, רוטב סמיך וכוסברה'],
+['פילה אמנון בטחינה','צנוברים קלויים ופטרוזיליה']]},
+{k:'oven',t:'מהתנור',img:'img/m_oven.jpg',cap:'לזניה גבינות מהתנור',items:[
+['לזניה ירקות קלויים','רוטב עגבניות עשיר ושכבת גבינות זהובה','להיט'],
+['קישים אישיים','תרד ופטה · בצל מקורמל · פטריות יער'],
+['בלינצ׳ס גבינה מתוקה','רוטב פירות יער חם ואבקת סוכר'],
+['פשטידת תפוחי אדמה ושמנת','שכבות דקות וקרום פריך'],
+['שקשוקה ירוקה','תרד, מנגולד ופטה, במחבתות הגשה','מוגש חם'],
+['מלאווח ממולא גבינות','מגולגל ביד, עם רסק עגבניות']]},
+{k:'sweet',t:'קינוחים',img:'img/m_sweet.jpg',cap:'שולחן קינוחים',items:[
+['עוגת גבינה פירורים','המתכון הוותיק, בגרסה חגיגית','להיט'],
+['עוגת גבינה ותאנים','קרם גבינה אוורירי ותאנים טריות'],
+['טארטלטים אישיים','קרם וניל, לימון ופירות העונה'],
+['מוס שוקולד בכוסות','שוקולד מריר ושמנת מוקצפת'],
+['פבלובה פירות יער','מרנג פריך, קרם מסקרפונה ופירות'],
+['מלבי ורדים','סירופ ורדים, קוקוס ופיסטוקים']]},
+{k:'trays',t:'מגשי אירוח',img:'img/m_trays.jpg',cap:'מגש גבינות בוטיק',items:[
+['מגש גבינות בוטיק','גבינות, ענבים, אגוזים, דבש וקרקרים','להיט'],
+['מגש כריכוני בריוש','במילויים חלביים וטונה'],
+['מגש פירות העונה','נחתך ונבדק בבוקר האירוע'],
+['מגש ירקות ומטבלים','ירקות חתוכים, לאבנה וטחינה'],
+['מגש מאפים מתוקים','רוגלעך, שטרודל ועוגיות חמאה'],
+['מגש סלמון כבוש','על קרקרים עם שמנת ושמיר']]}];
+
+const tabs=$('#tabs'), dishes=$('#dishes');
+tabs.innerHTML=MENU.map((c,i)=>`<button class="tab" role="tab" id="tab-${c.k}" aria-selected="${i===0}" data-k="${c.k}" type="button">${c.t}</button>`).join('');
+const showCat=k=>{
+  const c=MENU.find(m=>m.k===k);
+  $$('.tab',tabs).forEach(b=>b.setAttribute('aria-selected',b.dataset.k===k));
+  $('#dishesWrap').setAttribute('aria-labelledby','tab-'+k);
+  dishes.innerHTML=c.items.map((d,i)=>`<div class="dish"><span class="n">${String(i+1).padStart(2,'0')}</span><h3>${d[0]}${d[2]?`<span class="tag">${d[2]}</span>`:''}</h3><p>${d[1]}</p></div>`).join('')+(c.note?`<p class="dish-note">${c.note}</p>`:'');
+  const pic=$('#menuPic');if(pic.getAttribute('src')!==c.img){if(window.gsap&&!reduce){gsap.fromTo(pic,{opacity:0,scale:1.06},{opacity:1,scale:1,duration:.8,ease:'power2.out'})}pic.src=c.img}pic.alt=c.cap;$('#menuCap').textContent=c.cap;
+  if(window.gsap&&!reduce) gsap.from($$('.dish',dishes),{y:24,opacity:0,duration:.5,stagger:.05,ease:'power2.out'});
+};
+tabs.addEventListener('click',e=>{const b=e.target.closest('.tab');if(b)showCat(b.dataset.k)});
+tabs.addEventListener('keydown',e=>{
+  if(!['ArrowLeft','ArrowRight'].includes(e.key))return;
+  const bs=$$('.tab',tabs),i=bs.indexOf(document.activeElement);if(i<0)return;
+  const n=bs[(i+(e.key==='ArrowLeft'?1:-1)+bs.length)%bs.length];n.focus();showCat(n.dataset.k);
+});
+showCat('start');
+
+/* header */
+const hdr=$('#hdr');addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>10),{passive:true});
+const nav=$('#nav'),mb=$('#menuBtn');
+mb.addEventListener('click',()=>{const o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o)});
+nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');mb.setAttribute('aria-expanded','false')}});
+
+/* contact form */
+const cf=$('#contactForm');
+const fieldErr=(input,msg)=>{const f=input.closest('.f');f.classList.toggle('bad',!!msg);f.querySelector('.err').textContent=msg||'';input.setAttribute('aria-invalid',msg?'true':'false')};
+const phoneOk=v=>/^0\d{1,2}-?\d{3}-?\d{4}$/.test(v.replace(/\s/g,''));
+cf.addEventListener('submit',e=>{
+  e.preventDefault();
+  const n=$('#c-name'),p=$('#c-phone');let ok=true;
+  if(!n.value.trim()){fieldErr(n,'נשמח לדעת איך לפנות אליכם');ok=false}else fieldErr(n);
+  if(!phoneOk(p.value)){fieldErr(p,'נראה שחסרה ספרה במספר');ok=false}else fieldErr(p);
+  if(!ok)return;
+  cf.innerHTML=`<div class="ok-msg">תודה, ${esc(n.value.trim())}! קיבלנו את הפרטים ונחזור אליכם עוד היום.</div>`;
+});
+
+/* ORDER FLOW */
+const ov=$('#ov'),body=$('#sheetBody');let lastFocus=null;
+const EVENTS=['ברית','פדיון הבן','בר מצווה','שבע ברכות','קידוש','אירוע חברה','אחר'];
+let order=null;
+try{order=JSON.parse(localStorage.getItem('hd-order')||'null')}catch(e){}
+const save=()=>{try{localStorage.setItem('hd-order',JSON.stringify(order))}catch(e){}};
+const steps=['פרטי האירוע','שיחה ואישור','בחירת תפריט','תשלום'];
+const prog=i=>`<div class="prog" aria-hidden="true">${steps.map((s,j)=>`<span class="${j<=i?'on':''}"></span>`).join('')}</div><div class="prog-l">${steps.map((s,j)=>`<span class="${j<=i?'on':''}">${s}</span>`).join('')}</div>`;
+const today=new Date();today.setDate(today.getDate()+3);const minDate=today.toISOString().slice(0,10);
+
+const viewForm=()=>{
+  body.innerHTML=`
+  <h2 id="ovTitle">פותחים הזמנה</h2>
+  <p class="sub">כמה פרטים על האירוע, ונציג יחזור אליכם לאשר זמינות ולתכנן יחד את התפריט.</p>
+  ${prog(0)}
+  <form id="orderForm" novalidate>
+   <fieldset class="f full" style="border:0;padding:0;margin:0"><legend style="margin-bottom:12px">סוג האירוע <span class="req">*</span></legend>
+    <div class="chips">${EVENTS.map((e,i)=>`<label class="chip"><input type="radio" name="type" value="${e}" ${i===0?'required':''}><span>${e}</span></label>`).join('')}</div>
+    <span class="err" id="typeErr" aria-live="polite"></span></fieldset>
+   <label class="f"><span>תאריך האירוע <span class="req" aria-hidden="true">*</span></span><input name="date" id="o-date" type="date" min="${minDate}" required><span class="err" aria-live="polite"></span></label>
+   <label class="f">שעת הגשה<input name="time" type="time" value="12:00"></label>
+   <label class="f"><span>עיר <span class="req" aria-hidden="true">*</span></span><input name="city" id="o-city" type="text" autocomplete="address-level2" required><span class="err" aria-live="polite"></span></label>
+   <label class="f">כתובת / אולם<input name="place" type="text" autocomplete="street-address"></label>
+   <label class="f"><span>מספר אורחים משוער <span class="req" aria-hidden="true">*</span></span><input name="guests" id="o-guests" type="number" inputmode="numeric" min="10" max="2000" step="5" required><span class="err" aria-live="polite"></span></label>
+   <label class="f">סגנון הגשה<select name="style"><option>מזנון (בופה)</option><option>הגשה לשולחנות</option><option>מגשי אירוח בלבד</option><option>עוד לא החלטנו</option></select></label>
+   <label class="f"><span>שם מלא <span class="req" aria-hidden="true">*</span></span><input name="name" id="o-name" type="text" autocomplete="name" required><span class="err" aria-live="polite"></span></label>
+   <label class="f"><span>טלפון <span class="req" aria-hidden="true">*</span></span><input name="phone" id="o-phone" type="tel" autocomplete="tel" inputmode="tel" required><span class="err" aria-live="polite"></span></label>
+   <label class="f full"><span>מייל לאישור ההזמנה <span class="req" aria-hidden="true">*</span></span><input name="email" id="o-mail" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></label>
+   <label class="f full">משהו שחשוב לנו לדעת?<textarea name="notes" rows="3" placeholder="רגישויות, בקשות מיוחדות, שעת הגעה לסידור…"></textarea></label>
+   <div class="sheet-foot" style="grid-column:1/-1"><small>השליחה אינה מחייבת. ההזמנה נכנסת לתוקף רק אחרי שיחה ואישור שלנו.</small><button class="btn btn-acc" type="submit">שליחת בקשה</button></div>
+  </form>`;
+  $('#orderForm').addEventListener('submit',submitOrder);
+  focusFirst();
+};
+
+function submitOrder(e){
+  e.preventDefault();const f=e.target,fd=new FormData(f);let ok=true,first=null;
+  const chk=(el,cond,msg)=>{if(!cond){fieldErr(el,msg);ok=false;first=first||el}else fieldErr(el)};
+  const tErr=$('#typeErr');if(!fd.get('type')){tErr.textContent='בחרו את סוג האירוע';ok=false;first=first||f.querySelector('[name=type]')}else tErr.textContent='';
+  chk($('#o-date'),fd.get('date')&&fd.get('date')>=minDate,'בחרו תאריך, לפחות שלושה ימים מהיום');
+  chk($('#o-city'),fd.get('city').trim(),'באיזו עיר האירוע?');
+  const g=+fd.get('guests');chk($('#o-guests'),g>=10&&g<=2000,'מספר בין 10 ל־2000');
+  chk($('#o-name'),fd.get('name').trim(),'נשמח לדעת איך לפנות אליכם');
+  chk($('#o-phone'),phoneOk(fd.get('phone')),'נראה שחסרה ספרה במספר');
+  chk($('#o-mail'),/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(fd.get('email')),'כתובת המייל לא נראית תקינה');
+  if(!ok){first&&first.focus();return}
+  const o=Object.fromEntries(fd.entries());
+  o.id='HD-'+String(Date.now()).slice(-6);o.status='pending';o.created=new Date().toISOString();o.menu=[];
+  order=o;save();viewDone.fresh=true;viewDone();
+}
+
+const fmtDate=d=>{try{return new Date(d+'T12:00').toLocaleDateString('he-IL',{weekday:'long',day:'numeric',month:'long',year:'numeric'})}catch(e){return d}};
+
+
+/* ---- EMAIL via viewer's Make → Gmail connector ---- */
+const MAIL_TPL=e=>`<!DOCTYPE html>
+<html lang="he" dir="rtl" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>קיבלנו את הבקשה שלכם · חלב ודבש</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hebrew:wght@400;500&family=Heebo:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;padding:0;background:#F5EEE3;-webkit-text-size-adjust:100%}
+  table{border-collapse:separate}
+  a{color:#8F5F0C}
+  @media (max-width:620px){
+    .container{width:100%!important;border-radius:0!important}
+    .px{padding-left:24px!important;padding-right:24px!important}
+    .h1{font-size:40px!important}
+    .col{display:block!important;width:100%!important;text-align:right!important}
+  }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#F5EEE3;">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:#F5EEE3;">${e.name}, קיבלנו את הבקשה לאירוע ב־${e.date}. נציג שלנו יחזור אליכם בהקדם לאישור.&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F5EEE3;">
+<tr><td align="center" style="padding:36px 12px;">
+
+<table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" dir="rtl" style="width:600px;max-width:600px;background:#FBF7F1;border-radius:28px;overflow:hidden;box-shadow:0 24px 60px -28px rgba(92,64,34,.35);">
+
+<tr><td class="px" style="padding:30px 48px 26px;" align="center">
+<div style="font-family:'Noto Serif Hebrew',Georgia,serif;font-size:30px;font-weight:500;line-height:1;color:#2E2621;">חלב <span style="color:#E6B04A;font-weight:400;">&amp;</span> דבש</div>
+<div style="font-family:Heebo,Arial,sans-serif;font-size:13px;color:#7D7064;margin-top:8px;">קייטרינג חלבי · חלב ישראל · כשרות רבנות רחובות מהדרין</div>
+</td></tr>
+
+<tr><td style="padding:0 24px;"><div style="height:1px;background:#E7DCCC;line-height:1px;font-size:1px;">&nbsp;</div></td></tr>
+
+<tr><td class="px" style="padding:48px 48px 8px;" align="center">
+<table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr><td style="width:64px;height:64px;border-radius:50%;background:#F8E9C6;text-align:center;font-family:Georgia,serif;font-size:30px;color:#8F5F0C;line-height:64px;">✓</td></tr></table>
+<h1 class="h1" style="margin:26px 0 0;font-family:'Noto Serif Hebrew',Georgia,serif;font-size:48px;font-weight:400;line-height:1.1;color:#2E2621;">תודה, ${e.name}.<br><span style="color:#8F5F0C;font-weight:400;">קיבלנו את הבקשה.</span></h1>
+<p style="margin:20px auto 0;max-width:440px;font-family:Heebo,Arial,sans-serif;font-size:17px;font-weight:300;line-height:1.75;color:#6B5F55;">הבקשה שלכם כבר אצל הצוות שלנו. נציג אישי ייצור איתכם קשר בהקדם כדי לאשר את התאריך, להכיר את האירוע ולתכנן יחד את השולחן.</p>
+</td></tr>
+
+<tr><td class="px" style="padding:38px 48px 8px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#FFFFFF;border-radius:22px;">
+<tr><td style="padding:26px 28px 18px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+<td style="font-family:'Noto Serif Hebrew',Georgia,serif;font-size:24px;color:#2E2621;">פרטי האירוע</td>
+<td align="left" style="font-family:Heebo,Arial,sans-serif;font-size:13px;color:#7D7064;">בקשה מס׳ <span dir="ltr" style="color:#2E2621;">${e.order_id}</span></td>
+</tr></table>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-family:Heebo,Arial,sans-serif;font-size:15px;margin-top:14px;">
+<tr><td style="padding:10px 0;color:#7D7064;width:118px;border-top:1px solid #EFE5D6;">סוג האירוע</td><td style="padding:10px 0;color:#2E2621;border-top:1px solid #EFE5D6;">${e.event_type}</td></tr>
+<tr><td style="padding:10px 0;color:#7D7064;border-top:1px solid #EFE5D6;">תאריך ושעה</td><td style="padding:10px 0;color:#2E2621;border-top:1px solid #EFE5D6;">${e.date} · ${e.time}</td></tr>
+<tr><td style="padding:10px 0;color:#7D7064;border-top:1px solid #EFE5D6;">מיקום</td><td style="padding:10px 0;color:#2E2621;border-top:1px solid #EFE5D6;">${e.city} · ${e.place}</td></tr>
+<tr><td style="padding:10px 0;color:#7D7064;border-top:1px solid #EFE5D6;">אורחים</td><td style="padding:10px 0;color:#2E2621;border-top:1px solid #EFE5D6;">${e.guests}</td></tr>
+<tr><td style="padding:10px 0;color:#7D7064;border-top:1px solid #EFE5D6;">סגנון הגשה</td><td style="padding:10px 0;color:#2E2621;border-top:1px solid #EFE5D6;">${e.style}</td></tr>
+<tr><td style="padding:10px 0;color:#7D7064;border-top:1px solid #EFE5D6;vertical-align:top;">הערות</td><td style="padding:10px 0;color:#6B5F55;border-top:1px solid #EFE5D6;">${e.notes}</td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+
+<tr><td class="px" style="padding:40px 48px 6px;">
+<div style="font-family:'Noto Serif Hebrew',Georgia,serif;font-size:28px;color:#2E2621;margin-bottom:20px;">מה קורה עכשיו?</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-family:Heebo,Arial,sans-serif;">
+<tr><td valign="top" style="width:52px;padding-bottom:20px;"><div style="width:36px;height:36px;border-radius:50%;background:#E6B04A;color:#2E2621;text-align:center;line-height:36px;font-size:15px;">1</div></td>
+<td valign="top" style="padding-bottom:20px;"><div style="color:#2E2621;font-size:16px;font-weight:500;">שיחה ואישור</div><div style="color:#6B5F55;font-size:15px;font-weight:300;line-height:1.6;margin-top:2px;">נציג חוזר אליכם, בודק זמינות ומאשר את האירוע.</div></td></tr>
+<tr><td valign="top" style="width:52px;padding-bottom:20px;"><div style="width:36px;height:36px;border-radius:50%;background:#F8E9C6;color:#8F5F0C;text-align:center;line-height:36px;font-size:15px;">2</div></td>
+<td valign="top" style="padding-bottom:20px;"><div style="color:#2E2621;font-size:16px;font-weight:500;">בחירת תפריט</div><div style="color:#6B5F55;font-size:15px;font-weight:300;line-height:1.6;margin-top:2px;">מיד עם האישור יישלח אליכם קישור אישי לבחירת המנות.</div></td></tr>
+<tr><td valign="top" style="width:52px;"><div style="width:36px;height:36px;border-radius:50%;background:#F8E9C6;color:#8F5F0C;text-align:center;line-height:36px;font-size:15px;">3</div></td>
+<td valign="top"><div style="color:#2E2621;font-size:16px;font-weight:500;">תשלום מאובטח, ושקט</div><div style="color:#6B5F55;font-size:15px;font-weight:300;line-height:1.6;margin-top:2px;">סוגרים את הפרטים, ואנחנו לוקחים את זה מכאן ועד הפינוי.</div></td></tr>
+</table>
+</td></tr>
+
+<tr><td class="px" style="padding:36px 48px 8px;" align="center">
+<table role="presentation" cellpadding="0" cellspacing="0" align="center"><tr>
+<td style="background:#2E2621;border-radius:999px;"><a href="https://wa.me/972509153240?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%91%D7%A7%D7%A9%D7%94%20%D7%9E%D7%A1%D7%A4%D7%A8%20${e.order_id}" style="display:inline-block;padding:16px 32px;font-family:Heebo,Arial,sans-serif;font-size:16px;color:#FBF7F1;text-decoration:none;">רוצים לזרז? כתבו לנו בוואטסאפ</a></td>
+</tr></table>
+<p style="margin:14px 0 0;font-family:Heebo,Arial,sans-serif;font-size:15px;color:#7D7064;">או התקשרו: <a href="tel:+972509153240" style="color:#8F5F0C;text-decoration:none;" dir="ltr">050-915-3240</a></p>
+</td></tr>
+
+<tr><td class="px" style="padding:36px 48px 40px;" align="center">
+<p style="margin:0;font-family:Heebo,Arial,sans-serif;font-size:13px;font-weight:300;line-height:1.7;color:#7D7064;">הבקשה אינה מחייבת. ההזמנה נכנסת לתוקף רק אחרי שיחה ואישור שלנו.</p>
+</td></tr>
+
+</table>
+
+<p style="margin:22px 0 0;font-family:Heebo,Arial,sans-serif;font-size:12px;color:#7D7064;">חלב ודבש · קייטרינג חלבי · 050-915-3240</p>
+</td></tr>
+</table>
+</body>
+</html>
+`;
+const getClaude=()=>new Promise(res=>{let t=0;const tick=()=>{if(window.claude&&window.claude.use)return res(window.claude);if((t+=200)>6000)return res(null);setTimeout(tick,200)};tick()});
+const b64u8=str=>{const bytes=new TextEncoder().encode(str);let bin='';for(let i=0;i<bytes.length;i+=0x8000)bin+=String.fromCharCode.apply(null,bytes.subarray(i,i+0x8000));return btoa(bin)};
+const hdrEnc=s=>'=?UTF-8?B?'+b64u8(s)+'?=';
+const wrap76=s=>s.replace(/.{1,76}/g,'$&\r\n');
+const SITE_MODE='pages',MAIL_HOOK='https://hook.eu1.make.com/7xmqnhya425r5bicypuhil5w717j6jij';
+const mailVals=o=>({name:esc(o.name.split(' ')[0]),order_id:esc(o.id),event_type:esc(o.type),guests:esc(o.guests),date:esc(fmtDate(o.date)),time:esc(o.time||'—'),city:esc(o.city),place:esc(o.place||'—'),style:esc(o.style||'—'),notes:esc(o.notes||'—')});
+const buildRaw=o=>{
+  const html=MAIL_TPL(mailVals(o));
+  const text=`${o.name}, קיבלנו את הבקשה שלכם (${o.id}) ל${o.type} בתאריך ${fmtDate(o.date)}. נציג שלנו יחזור אליכם בהקדם לאישור. חלב ודבש · 050-915-3240`;
+  const B='hd_'+Date.now();
+  const mime=[`To: ${o.email}`,`From: ${hdrEnc('חלב ודבש · קייטרינג חלבי')} <g9799009@gmail.com>`,`Subject: ${hdrEnc('קיבלנו את הבקשה שלך · '+o.id+' · חלב ודבש')}`,'MIME-Version: 1.0',`Content-Type: multipart/alternative; boundary="${B}"`,'',
+   `--${B}`,'Content-Type: text/plain; charset=UTF-8','Content-Transfer-Encoding: base64','',wrap76(b64u8(text)),
+   `--${B}`,'Content-Type: text/html; charset=UTF-8','Content-Transfer-Encoding: base64','',wrap76(b64u8(html)),`--${B}--`,''].join('\r\n');
+  return b64u8(mime).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+};
+const MAIL_ERR={
+  server_not_connected:'החיבור ל-Make לא נמצא בחשבון שצופה בדף, ולכן המייל לא נשלח.',
+  needs_reauth:'צריך לחבר מחדש את Make בהגדרות Claude (Connectors), ולכן המייל לא נשלח.',
+  not_in_manifest:'לא אושרה לדף הזה שליחה דרך Make, ולכן המייל לא נשלח.',
+  approval_required:'השליחה דרך Make מחכה לאישור שלך בחלון של Claude.',
+  blocked_by_policy:'הארגון חוסם את השליחה דרך Make מהדף הזה.',
+  tool_error:'Gmail החזיר שגיאה, והמייל לא נשלח.'};
+async function sendOrderMail(o,statusEl){
+  const set=(t,ok)=>{if(statusEl){statusEl.textContent=t;statusEl.dataset.state=ok}};
+  set('שולחים אישור לכתובת '+o.email+'…','wait');
+  if(SITE_MODE==='pages'){
+    try{
+      const body=new URLSearchParams({key:'hd-2026-catering',email:o.email,order_id:o.id,html:MAIL_TPL(mailVals(o))});
+      await fetch(MAIL_HOOK,{method:'POST',mode:'no-cors',body});
+      o.mailSent=true;save();set('שלחנו אישור לכתובת '+o.email+'. אם הוא לא מופיע בתיבה בעוד כמה דקות, כדאי להציץ בקידומי מכירות או בספאם.','ok');return true;
+    }catch(err){set('לא הצלחנו לשלוח את המייל כרגע. אפשר לנסות שוב, או לכתוב לנו בוואטסאפ.','bad');return false}
+  }
+  const c=await getClaude();const mcp=c?await c.use('mcp').catch(()=>null):null;
+  if(!mcp){set('בתצוגה הזו אין חיבור לשליחת מייל. פתחו את הדף מתוך Claude כדי שהמייל יישלח.','bad');return false}
+  try{
+    await mcp.callTool('Make','s7066165_gmail_api_call_generic',{path:'/v1/users/me/messages/send',method:'POST',bodyJson:JSON.stringify({raw:buildRaw(o)})},{cache:false});
+    o.mailSent=true;save();set('נשלח מייל אישור לכתובת '+o.email,'ok');return true;
+  }catch(err){
+    const code=err&&err.code;
+    set(MAIL_ERR[code]||('המייל לא נשלח ('+(code||'שגיאה')+'). אפשר לנסות שוב.'),'bad');
+    return false;
+  }
+}
+
+const viewDone=()=>{
+  const o=order;
+  body.innerHTML=`<div class="done">
+   <svg class="seal" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="none" stroke="#E6B04A" stroke-width="4" class="seal-c"/><path d="M36 62l16 16 32-34" fill="none" stroke="#E6B04A" stroke-width="7" stroke-linecap="square" class="seal-p"/></svg>
+   <h2 id="ovTitle" tabindex="-1">הבקשה התקבלה!</h2>
+   <p class="sub">תודה, ${esc(o.name.split(' ')[0])}. נציג שלנו ייצור איתך קשר בהקדם כדי לאשר את התאריך ולתכנן יחד את האירוע. </p>
+   <p class="mail-st" id="mailSt" role="status" aria-live="polite" data-state="wait"></p>
+   <button type="button" id="mailRetry" class="btn btn-ghost" hidden style="margin-top:12px;min-height:44px">שליחת המייל שוב</button>
+   ${prog(1)}
+   <dl class="ticket">
+    <dt>מספר בקשה</dt><dd style="direction:ltr;text-align:right">${esc(o.id)}</dd>
+    <dt>אירוע</dt><dd>${esc(o.type)} · ${esc(o.guests)} אורחים</dd>
+    <dt>מתי</dt><dd>${esc(fmtDate(o.date))}${o.time?', '+esc(o.time):''}</dd>
+    <dt>איפה</dt><dd>${esc(o.city)}${o.place?' · '+esc(o.place):''}</dd>
+   </dl>
+   <div class="next">
+    <div><i>2</i><span><b>שיחה ואישור.</b> נציג חוזר אליכם, בודק זמינות ומאשר את האירוע.</span></div>
+    <div><i>3</i><span><b>בחירת תפריט.</b> מיד עם האישור יישלח אליכם קישור לבחירת המנות.</span></div>
+    <div><i>4</i><span><b>תשלום מאובטח.</b> סוגרים, ואנחנו לוקחים את זה מכאן.</span></div>
+   </div>
+   <div class="sheet-foot" style="justify-content:center"><a class="btn btn-ghost" href="https://wa.me/972509153240?text=${encodeURIComponent('שלום, פתחתי בקשה '+o.id+' באתר')}" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true"><use href="#i-wa"/></svg>רוצים לזרז? כתבו לנו</a><button class="btn btn-acc" type="button" data-close>סגירה</button></div>
+   <p style="margin-top:18px"><button type="button" id="newReq" style="background:none;border:0;color:var(--mute);text-decoration:underline;font:inherit;cursor:pointer;min-height:44px">פתיחת בקשה לאירוע נוסף</button></p>
+   <div class="demo"${SITE_MODE==='pages'?'':''}><span>תצוגה לבעלת העסק: כך ייראה ללקוח השלב שאחרי אישור הנציג.</span><button type="button" id="demoApprove">הצגת שלב בחירת התפריט</button></div>
+  </div>`;
+  {const st=$('#mailSt'),rb=$('#mailRetry');
+   const go=()=>{rb.hidden=true;sendOrderMail(order,st).then(ok=>{rb.hidden=ok})};
+   rb.onclick=go;
+   if(o.mailSent){st.textContent='נשלח מייל אישור לכתובת '+o.email;st.dataset.state='ok'}else if(viewDone.fresh){viewDone.fresh=false;go()}else{st.textContent='';rb.hidden=false}}
+  $('#newReq').onclick=()=>{order=null;try{localStorage.removeItem('hd-order')}catch(e){};viewForm()};
+  $('#demoApprove').onclick=()=>{order.status='approved';save();viewMenu()};
+  $('#ovTitle').focus();
+  if(window.gsap&&!reduce){gsap.from('.seal-c',{strokeDasharray:360,strokeDashoffset:360,duration:.8,ease:'power2.out'});gsap.from('.seal-p',{strokeDasharray:80,strokeDashoffset:80,duration:.5,delay:.5,ease:'power2.out'});gsap.from('.done>*:not(.seal)',{y:18,opacity:0,stagger:.06,duration:.5,delay:.2})}
+};
+
+const viewMenu=()=>{
+  const o=order,sel=new Set(o.menu||[]);
+  body.innerHTML=`<h2 id="ovTitle" tabindex="-1">האירוע אושר. בוחרים תפריט</h2>
+  <p class="sub">${esc(o.type)} ל־${esc(o.guests)} אורחים, ${esc(fmtDate(o.date))}. סמנו את המנות שאתם רוצים, והשף יתאים כמויות.</p>
+  ${prog(2)}
+  ${MENU.map(c=>`<div class="pick-group"><h3>${c.t}<small>${c.items.length} אפשרויות</small></h3><div class="picks">${c.items.map(d=>{const id=c.k+'|'+d[0];return `<label class="pick"><input type="checkbox" value="${esc(id)}" ${sel.has(id)?'checked':''}><span class="box"><svg aria-hidden="true"><use href="#i-check"/></svg></span><span><b>${d[0]}</b><span>${d[1]}</span></span></label>`}).join('')}</div></div>`).join('')}
+  <label class="f full" style="margin-top:30px">הערות לשף<textarea id="chefNote" rows="3">${esc(o.chef||'')}</textarea></label>
+  <div class="summary"><span id="selCount"></span><button class="btn btn-acc" type="button" id="toPay">המשך לתשלום</button></div>`;
+  const upd=()=>{const n=$$('.pick input:checked',body).length;$('#selCount').innerHTML=n?`נבחרו <b>${n}</b> מנות`:'עוד לא נבחרו מנות';$('#toPay').disabled=!n;$('#toPay').style.opacity=n?1:.45};
+  body.addEventListener('change',upd);upd();
+  $('#toPay').onclick=()=>{order.menu=$$('.pick input:checked',body).map(i=>i.value);order.chef=$('#chefNote').value;save();viewPay()};
+  $('#ovTitle').focus();$('#sheet').scrollIntoView({block:'start'});
+};
+
+const viewPay=()=>{
+  const o=order;const names=o.menu.map(v=>v.split('|')[1]);
+  body.innerHTML=`<h2 id="ovTitle" tabindex="-1">סיכום ותשלום</h2>
+  <p class="sub">בודקים שהכל נכון, ומשלמים בתשלום מאובטח. הסכום הוא הסכום שסוכם איתכם בשיחה.</p>
+  ${prog(3)}
+  <div class="pay-grid">
+   <div class="pay-box"><h3>ההזמנה שלכם</h3><ul class="pay-list">
+    <li><span>מספר הזמנה</span><b style="direction:ltr">${esc(o.id)}</b></li>
+    <li><span>אירוע</span><b>${esc(o.type)}</b></li>
+    <li><span>תאריך</span><b>${esc(fmtDate(o.date))}</b></li>
+    <li><span>אורחים</span><b>${esc(o.guests)}</b></li>
+    <li><span>מיקום</span><b>${esc(o.city)}</b></li>
+   </ul>
+   <p style="margin-top:18px;color:var(--mute);font-size:15px">המנות שבחרתם: ${names.map(esc).join(' · ')}</p>
+   <button class="btn btn-ghost" type="button" id="backMenu" style="margin-top:18px;min-height:44px">עריכת התפריט</button></div>
+   <div class="pay-box"><h3>תשלום מאובטח</h3>
+    <div class="secure"><svg aria-hidden="true"><use href="#i-lock"/></svg><b style="color:var(--ink)">כאן ייטען טופס התשלום של חברת הסליקה</b><span>החיבור יבוצע אחרי שתיבחר חברת הסליקה. פרטי האשראי לא עוברים דרך האתר.</span></div>
+    <label class="agree"><input type="checkbox" id="agree"><span>קראתי ואני מאשר/ת את תנאי ההזמנה ומדיניות הביטולים</span></label>
+    <button class="btn btn-acc" type="button" id="payBtn" style="width:100%;margin-top:18px">לתשלום מאובטח</button>
+    <p id="payMsg" aria-live="polite" style="margin-top:12px;font-size:15px;color:var(--mute)"></p>
+   </div>
+  </div>`;
+  $('#backMenu').onclick=viewMenu;
+  $('#payBtn').onclick=()=>{const a=$('#agree');$('#payMsg').textContent=a.checked?'זו תצוגת הדגמה: חברת הסליקה עוד לא מחוברת, ולא בוצע חיוב.':'כדי להמשיך, אשרו את תנאי ההזמנה.'};
+  $('#ovTitle').focus();
+};
+
+const openFlow=()=>{
+  lastFocus=document.activeElement;ov.classList.add('open');document.body.style.overflow='hidden';
+  if(order&&order.status==='approved')viewMenu();else if(order&&order.status==='pending')viewDone();else viewForm();
+  if(window.gsap&&!reduce)gsap.fromTo('#sheet',{y:40,opacity:0},{y:0,opacity:1,duration:.45,ease:'power3.out'});
+};
+const closeFlow=()=>{ov.classList.remove('open');document.body.style.overflow='';lastFocus&&lastFocus.focus()};
+function focusFirst(){const el=body.querySelector('input,select,textarea,button');el&&el.focus()}
+document.addEventListener('click',e=>{if(e.target.closest('[data-order]'))openFlow();if(e.target.closest('[data-close]'))closeFlow()});
+$('#ovClose').onclick=closeFlow;
+ov.addEventListener('click',e=>{if(e.target===ov)closeFlow()});
+ov.addEventListener('keydown',e=>{
+  if(e.key==='Escape')closeFlow();
+  if(e.key==='Tab'){const f=$$('button,a[href],input,select,textarea,[tabindex="0"]',$('#sheet')).filter(x=>!x.disabled&&x.offsetParent);if(!f.length)return;const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}
+});
+if(location.hash==='#order')openFlow();
+
+/* MOTION */
+if(window.gsap&&!reduce){
+  gsap.registerPlugin(ScrollTrigger);
+  const tl=gsap.timeline({defaults:{ease:'power4.out'}});
+  tl.from('.hero h1 .l span',{yPercent:110,duration:1.1,stagger:.12})
+    .from('.reveal-h',{y:24,opacity:0,duration:.8,stagger:.08},'-=.7')
+    ;
+  gsap.fromTo('.hero-img',{scale:1.12},{scale:1,duration:2.4,ease:'power2.out'});
+  gsap.to('.hero-img',{yPercent:12,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  gsap.to('.hero-in',{yPercent:-18,opacity:.2,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  $$('.gal-grid img').forEach(im=>gsap.fromTo(im,{yPercent:-6},{yPercent:6,ease:'none',scrollTrigger:{trigger:im,start:'top bottom',end:'bottom top',scrub:true}}));
+  const m=$('#marq');gsap.to(m,{xPercent:50,duration:40,ease:'none',repeat:-1});
+  $$('.reveal').forEach(el=>gsap.from(el,{y:36,opacity:0,duration:1.1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
+  gsap.from('.step .k',{textContent:0,duration:1,snap:{textContent:1},stagger:.15,scrollTrigger:{trigger:'.steps',start:'top 85%'}});
+}
+}
+</script>
+</body>
+</html>
