@@ -568,6 +568,7 @@ const MENU=[
 ['מגש מאפים מתוקים','רוגלעך, שטרודל ועוגיות חמאה'],
 ['מגש סלמון כבוש','על קרקרים עם שמנת ושמיר']]}];
 
+const PRE={};MENU.forEach(c=>{const im=new Image();im.decoding='async';im.src=c.img;PRE[c.img]=im});
 const tabs=$('#tabs'), dishes=$('#dishes');
 tabs.innerHTML=MENU.map((c,i)=>`<button class="tab" role="tab" id="tab-${c.k}" aria-selected="${i===0}" data-k="${c.k}" type="button">${c.t}</button>`).join('');
 const showCat=k=>{
@@ -575,7 +576,10 @@ const showCat=k=>{
   $$('.tab',tabs).forEach(b=>b.setAttribute('aria-selected',b.dataset.k===k));
   $('#dishesWrap').setAttribute('aria-labelledby','tab-'+k);
   dishes.innerHTML=c.items.map((d,i)=>`<div class="dish"><span class="n">${String(i+1).padStart(2,'0')}</span><h3>${d[0]}${d[2]?`<span class="tag">${d[2]}</span>`:''}</h3><p>${d[1]}</p></div>`).join('')+(c.note?`<p class="dish-note">${c.note}</p>`:'');
-  const pic=$('#menuPic');if(pic.getAttribute('src')!==c.img){if(window.gsap&&!reduce){gsap.fromTo(pic,{opacity:0,scale:1.06},{opacity:1,scale:1,duration:.8,ease:'power2.out'})}pic.src=c.img}pic.alt=c.cap;$('#menuCap').textContent=c.cap;
+  const pic=$('#menuPic');pic.alt=c.cap;$('#menuCap').textContent=c.cap;
+  if(pic.getAttribute('src')!==c.img){const want=c.img;const im=PRE[want]||new Image();if(!PRE[want]){im.src=want;PRE[want]=im}
+    const show=()=>{if($('#menuPic').dataset.want!==want)return;pic.src=want;if(window.gsap&&!reduce)gsap.fromTo(pic,{opacity:.35,scale:1.03},{opacity:1,scale:1,duration:.45,ease:'power2.out'})};
+    pic.dataset.want=want;(im.decode?im.decode():Promise.resolve()).then(show,show)}
   if(window.gsap&&!reduce) gsap.from($$('.dish',dishes),{y:24,opacity:0,duration:.5,stagger:.05,ease:'power2.out'});
 };
 tabs.addEventListener('click',e=>{const b=e.target.closest('.tab');if(b)showCat(b.dataset.k)});
